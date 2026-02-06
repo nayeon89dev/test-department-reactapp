@@ -7,6 +7,11 @@ function App() {
 	const [count, setCount] = useState(0);
 	const [name, setName] = useState("");
 
+	const path = new URLSearchParams(window.location.search).get("path");
+	if (path) {
+		console.log("path", path);
+	}
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setName(e.target.value);
 	};
@@ -40,6 +45,7 @@ function App() {
 				<button onClick={handleClick}>Click me</button>
 			</div>
 			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+			<p>Path: {path}</p>
 		</>
 	);
 }
